@@ -1,132 +1,105 @@
 * {box-sizing: border-box}
 
-body {
-   /* font-family: "Lato", sans-serif; */
-    /* background-color: #bbb;      */
-    background-color: black;
+@viewport {
+    width: device-width;
+    zoom: 1.0;
 }
 
-img {
+
+@media screen and (max-width:850px) {
+  /* CSS for screens that are 850 pixels or less will be put in this section */
+    .tab button {
+        font-size: 12px;
+    }
 
 }
 
-table {
-    color:white;
+@media screen and (min-width:851px) {
+    .tab button {
+        font-size: 17px;
+    }
 }
 
-p {
-    color: white;
-}
-
-h1, h2, h3 {
-    color: white;
-    text-shadow: 2px 2px 2px #ff0000;
-}
-
-/* style the tab */
-.tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #00001a;
-    width: 15%;
-    height: 800px;  `
-}
-
-/* style the buttons that are used to open the tab content */
-.tab button {
-    display: block;
-    background-color: inherit;
-    color: white;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #000066;
-}
-
-/* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #0000b3;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 8px;
-  border: 1px solid #ccc;
-  width: 85%;
-  border-left: none;
-  height: 800px;
-}
-
-.armies-content {
-    display: inline-block;
-    padding: 5px;
-}
-
-.battle-img {
-    height: 80px;
-    padding: 2px;
-}
-
-.duel-img {
-    height: 360px;
+@media screen and (max-width:1899px) {
+    /* CSS for small screens under 1899 pixels will be put here */
+    /* Change color of header to represent window size */
+    h1, h2, h3 {color: red;
+    text-shadow: 2px 2px 2px #ff0000;}
     
-}
-
-div.creatures-select {
-    overflow-x: scroll;
-    border: 1px solid white;
-    background-color: lightblue;
+    #containerMap {
     height: 200px;
-    width: 100%;
+    width: 400px;
+    position: relative;
+    outline: 1px solid #ccc;
+        }
+/* example of a single tile */
+.grass {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: green;
+    outline: 1px solid #ccc;
+        }
+        
+.desert {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: tan;
+    outline: 1px solid #ccc;
+        }
+
+.snow {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: white;
+    outline: 1px solid #ccc;
+        }
+
+.mountain {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: whitesmoke;
+    outline: 1px solid #ccc;
+        }
+
+.settlement {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: lightgoldenrodyellow;
+    outline: 1px solid #ccc;
+        }
+    
+.adv-img {
+    position: relative;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
 }
 
-div.creatures-select-enlistment {
-    overflow-x: scroll;
-    border: 1px solid white;
-    background-color: lightblue;
-    height: 80px;
-    width: 100%; 
-}
-
-/* relating to the adventure game */
-.adv-button {
-    height: 70px;
-    width: 100px;
-    font-size: 17px;
-}
-
-
-.adv-paragraph {
-    display: inline-block;
-    margin-left: 5px;
-}  
-
-#adv-movement {
-    border: 1px solid yellow;
-    display: inline-block;
-}
-
-#adv-interactions {
-    border: 1px solid yellow;
-    display: inline-block;
-}
-
-#containerMap {
+@media screen and (min-width:1900px) {
+    /* CSS for screens that are greater than 1900 pixels */
+    h1, h2, h3 {color: white;
+    text-shadow: 2px 2px 2px #ff0000;}
+    
+    #containerMap {
     height: 500px;
     width: 1600px;
     position: relative;
     outline: 1px solid #ccc;
         }
+    
 /* example of a single tile */
 .grass {
     height: 50px;
@@ -172,7 +145,7 @@ div.creatures-select-enlistment {
     background-color: lightgoldenrodyellow;
     outline: 1px solid #ccc;
         }
-
+    
 .adv-img {
     position: relative;
     display: block;
@@ -180,4 +153,135 @@ div.creatures-select-enlistment {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
+        }
 }
+
+
+body {
+   /* font-family: "Lato", sans-serif; */
+    /* background-color: #bbb;      */
+    background-color: black;
+}
+
+img {
+
+}
+
+table {
+    color:white;
+}
+
+p {
+    color: white;
+}
+
+/*
+h1, h2, h3 {
+    color: white;
+    text-shadow: 2px 2px 2px #ff0000;
+}
+*/
+
+/* style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #00001a;
+    width: 15%;
+    height: 800px;  `
+}
+
+/* style the buttons that are used to open the tab content */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #000066;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #0000b3;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 8px;
+  border: 1px solid #ccc;
+  width: 85%;
+  border-left: none;
+  height: 800px;
+}
+
+.armies-content {
+    display: inline-block;
+    padding: 5px;
+}
+
+.battle-img {
+    height: 80px;
+    padding: 2px;
+}
+
+.duel-img {
+    height: 360px;
+    
+}
+
+.creature-img-large {
+    width: 20%;
+}
+
+div.creatures-select {
+    overflow-x: scroll;
+    border: 1px solid white;
+    background-color: lightblue;
+    height: 200px;
+    width: 100%;
+}
+
+div.creatures-select-enlistment {
+    overflow-x: scroll;
+    border: 1px solid white;
+    background-color: lightblue;
+    height: 80px;
+    width: 100%; 
+}
+
+/* relating to the adventure game */
+.adv-button {
+    height: 70px;
+    width: 100px;
+    font-size: 17px;
+}
+
+
+.adv-paragraph {
+    display: inline-block;
+    margin-left: 5px;
+}  
+
+#adv-movement {
+    border: 1px solid yellow;
+    display: inline-block;
+}
+
+#adv-interactions {
+    border: 1px solid yellow;
+    display: inline-block;
+}
+
+
+

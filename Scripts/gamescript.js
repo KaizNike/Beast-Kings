@@ -36,7 +36,16 @@ function roll() {
 // currently busted by entering html
 function renameCreature() {
     var newName = document.getElementById("rename-creature").value;
-    document.getElementById("creature-name").innerHTML = "NAME: " + newName;
+    if (newName.includes("<")) {
+        alert("Unsupported character")
+    }
+    else if (newName.length > 20) {
+        alert("Too long")
+    }
+    else {
+        document.getElementById("creature-name").innerHTML = "NAME: " + String(newName);
+    }
+    
 }
 
 $(document).ready(function () {

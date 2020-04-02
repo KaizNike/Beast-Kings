@@ -16,10 +16,10 @@ function duelStart() {
     }
     
     if (x < 1) {
-        document.write("YOU HAVE LOST.");
+        alert("YOU HAVE LOST.");
     }
     else if (y < 1) {
-        document.write("YOU HAVE WON.")
+        alert("YOU HAVE WON.")
     }
 }
 

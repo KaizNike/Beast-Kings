@@ -1,12 +1,3 @@
-// This script will contain all of the players creatures, as well as the creatures of enemy armies. It will also govern the Your Creatures and the Enlistment tabs. 
-// attackType can have 3 different types, 0 is default attack, 1 is healing, 2 is sanity attack
-var playerCreature = [
-    {id: 1, name: "Gregarious", type: "Blade Lion", smallPicture: "bladeLion.png", picture: "bladeLionLarge.png", lvl: 1, hp: 20, sane: 20, arm: 3, attackType: "Attack", attackValue: 7, range: 1, luck: 3, speed: 6, nature: "Quick", size: "Medium"},
-    {id: 2, name: "Toy Dragon", type: "Toy Dragon", smallPicture: "toyDragon.png", picture: "toyDragonLarge.png", lvl: 1, hp: 3, sane: 50, arm: 8, attackType: "Attack", attackValue: 20, range: 2, luck: 7, speed: 15, nature: "Fearful", size: "Small"},
-    {id: 3, name: "Haunter", type: "Scary Bloob", smallPicture: "scaryBloob.png", picture: "scaryBloobLarge.png", lvl: 20, hp: 10, sane: 1, arm: 10, attackType: "Fear", attackValue: 8, range: 1, luck: 3, speed: 6, nature: "Special Technique", size: "Very Large"},
-    {id: 4, name: "The Wump", type: "The Wump", smallPicture: "theWump.png", picture: "theWumpLarge.png", lvl: 6, hp: 55, sane: 5, arm: 5, attackType: "Attack", attackValue: 5, range: 1, luck: 5, speed: 7, nature: "Healthy", size: "Large"}
-];
-
 function displayPlayerCreature() {
     for (var i = 0; i < playerCreature.length; i++) { 
     //    console.log(playerCreature[i].name);      // works
@@ -68,7 +59,7 @@ function enlistmentSelection() {
     var select = document.getElementById("enlistment-select-" + finalSelectionLocation).value;
     // when -NONE- is selected
     if (select == 0) {
-        document.getElementById("enlistment-img-" + finalSelectionLocation).src = "blankLarge.png";
+        document.getElementById("enlistment-img-" + finalSelectionLocation).src = "Images/Beasts/blankLarge.png";
         document.getElementById("enlistment-hp-" + finalSelectionLocation).innerHTML = "HP:";
         document.getElementById("enlistment-sane-" + finalSelectionLocation).innerHTML = "SANE:";
     //    console.log("Selected none.");        // WORKS

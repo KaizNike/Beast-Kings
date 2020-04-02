@@ -6,16 +6,17 @@
     <title>Beast Kings - Strategy Game</title>
     <!-- nessecary jquery script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="navigation.js"></script>
-    <script src="creaturesscript.js"></script>
-    <script src="adventurescript.js"></script>
-    <script src="duelscript.js"></script>
-    <script src="gamescript.js"></script>
+    <script src="Scripts/navigation.js"></script>
+    <script src="Scripts/data.js"></script>
+    <script src="Scripts/creaturesscript.js"></script>
+    <script src="Scripts/adventurescript.js"></script>
+    <script src="Scripts/duelscript.js"></script>
+    <script src="Scripts/gamescript.js"></script>
     <script>
     var width = window.innerWidth;
     if (width < 800) {
         console.log("Do not display");
-        alert("Screen not supported.");
+        alert("Screen not supported. " + "Please view in landscape - tilt your device.");
     }
     </script>
     
@@ -25,13 +26,16 @@
         <h1 align="center">BEAST KINGS</h1>
         
         <div class="tab">
+            <!-- Max 12 Tabs without resizing -->
             <button class="tablinks" onclick="openTab(event, 'Story')" id="defaultOpen">Story</button>
             <button class="tablinks" onclick="openTab(event, 'Battle')">Battle</button>
             <button class="tablinks" onclick="openTab(event, 'Duels')">Duels</button>
             <button class="tablinks" onclick="openTab(event, 'Enlistment')">Enlistment</button>
             <button class="tablinks" onclick="openTab(event, 'Armory')">Armory</button>
             <button class="tablinks" onclick="openTab(event, 'Your-Creatures')">Your Creatures</button>
+            <button class="tablinks" onclick="openTab(event, 'Husbandry')">Husbandry</button>
             <button class="tablinks" onclick="openTab(event, 'Adventure')">Adventure</button>
+            <button class="tablinks" onclick="openTab(event, 'Settlement')">Settlement</button>
             <button class="tablinks" onclick="openTab(event, 'Achievements')">Achievements</button>
             <button class="tablinks" onclick="openTab(event, 'Options')">Options</button>
             <button class="tablinks" onclick="openTab(event, 'About')">About</button>
@@ -58,10 +62,10 @@
                 
                 <tr>
                     <th>Row 1</th>
-                    <td><img class="battle-img" src="bladeLionLarge.png"></td>
-                    <td><img class="battle-img" src="bugTurtleLarge.png"></td>
-                    <td><img class="battle-img" src="gigaSnakeLarge.png"></td>
-                    <td><img class="battle-img" src="theWumpLarge.png"></td>
+                    <td><img class="battle-img" src="Images/Beasts/Blade-Lion/bladeLionLarge.png"></td>
+                    <td><img class="battle-img" src="Images/Beasts/Bug-Turtle/bugTurtleLarge.png"></td>
+                    <td><img class="battle-img" src="Images/Beasts/Giga-Snake/gigaSnakeLarge.png"></td>
+                    <td><img class="battle-img" src="Images/Beasts/The-Wump/theWumpLarge.png"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -261,55 +265,55 @@
         <h3>Duels</h3>
         <p>Here your minions go to fight one on one.</p>
         <div style="width:50%; display:inline-block;">
-            <img class="duel-img" src="bladeLionLarge.png">
+            <img class="duel-img" src="Images/Beasts/Blade-Lion/bladeLionLarge.png">
             <div style="display:inline-block">
                 <p style="display:inline-block">Name:</p>
                 <p style="display:inline-block">Blade Lion</p>
-                <br>
+                
                 <p style="display:inline-block">HP:</p>
                 <p style="display:inline-block" id="duel-hp-one">20</p>
-                <br>
+                
                 <p style="display:inline-block">Sanity:</p>
-                <br>
+                
                 <p style="display:inline-block">Armor:</p>
-                <br>
+                
                 <p style="display:inline-block">Attack:</p>
-                <br>
+                
                 <p style="display:inline-block">Range:</p>
-                <br>
+                
                 <p style="display:inline-block">Distance:</p>
-                <br>
+                
                 <p style="display:inline-block">Speed:</p>
-                <br>
+                
                 <p style="display:inline-block">Luck:</p>
-                <br>
+                
                 <p style="display:inline-block">Roll:</p>
                 <p style="display:inline-block" id="duel-roll-one">0</p>
             </div>
         </div> 
                 <div style="width:50%; float:right; display:inline-block;">
-            <img class="duel-img" style:"float:right;" src="bladeLionLarge.png">
+            <img class="duel-img" style:"float:right;" src="Images/Beasts/Blade-Lion/bladeLionLarge.png">
             <div style="display:inline-block; float:left;">
                 <p style="display:inline-block">Name:</p>
                 <p style="display:inline-block">Blade Lion</p>
-                <br>
+                
                 <p style="display:inline-block">HP:</p>
                 <p style="display:inline-block" id="duel-hp-two">20</p>
-                <br>
+                
                 <p style="display:inline-block">Sanity:</p>
-                <br>
+                
                 <p style="display:inline-block">Armor:</p>
-                <br>
+                
                 <p style="display:inline-block">Attack:</p>
-                <br>
+                
                 <p style="display:inline-block">Range:</p>
-                <br>
+                
                 <p style="display:inline-block">Distance:</p>
-                <br>
+                
                 <p style="display:inline-block">Speed:</p>
-                <br>
+                
                 <p style="display:inline-block">Luck:</p>
-                <br>
+                
                 <p style="display:inline-block">Roll:</p>
                 <p style="display:inline-block" id="duel-roll-two">0</p>
             </div>
@@ -335,24 +339,24 @@
                 <!-- Row 1 -->
                 <tr>
                     <th>Row 1</th>
-                    <td><img id="enlistment-img-1" class="battle-img" src="bladeLionLarge.png">
+                    <td><img id="enlistment-img-1" class="battle-img" src="Images/Beasts/blankLarge.png">
                     <!-- this select chooses the monster to be sent into battle from the list at the bottom of the screen. onclick is set to enlistmentSelectionLocation(location) with location set from 1 to 16. 1 being top left in column 1 row 1 and 16 being bottom right in column 4 row 4.  -->
                     <select id="enlistment-select-1" class="enlistment-select"  onchange="enlistmentSelection()" onclick="enlistmentSelectionLocation(1)">
                         <!-- option none should change the tile to no creature with no hp and no sane, it will do this by onchange set to enlistmentSelection(type, id) with type and id set to 0 -->
                         <option value="0">-NONE-</option>
                         </select>
                     </td>
-                    <td><img id="enlistment-img-2" class="battle-img" src="bugTurtleLarge.png">
+                    <td><img id="enlistment-img-2" class="battle-img" src="Images/Beasts/blankLarge.png">
                     <select id="enlistment-select-2" class="enlistment-select" onchange="enlistmentSelection()" onclick="enlistmentSelectionLocation(2)">
                         <option value="0">-NONE-</option>
                         </select>
                     </td>
-                    <td><img id="enlistment-img-3" class="battle-img" src="gigaSnakeLarge.png">
+                    <td><img id="enlistment-img-3" class="battle-img" src="Images/Beasts/blankLarge.png">
                         <select id="enlistment-select-3" class="enlistment-select" onchange="enlistmentSelection()" onclick="enlistmentSelectionLocation(3)">
                             <option value="0">-NONE-</option>
                         </select>
                     </td>
-                    <td><img id="enlistment-img-4" class="battle-img" src="theWumpLarge.png">
+                    <td><img id="enlistment-img-4" class="battle-img" src="Images/Beasts/blankLarge.png">
                         <select id="enlistment-select-4" class="enlistment-select" onchange="enlistmentSelection()" onclick="enlistmentSelectionLocation(4)">
                             <option value="0">-NONE-</option>
                         </select>
@@ -360,26 +364,26 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="enlistment-hp-1">HP: 20</td>
-                    <td id="enlistment-hp-2">HP: 5</td>
-                    <td id="enlistment-hp-3">HP: 35</td>
-                    <td id="enlistment-hp-4">HP: 55</td>
+                    <td id="enlistment-hp-1">HP:</td>
+                    <td id="enlistment-hp-2">HP:</td>
+                    <td id="enlistment-hp-3">HP:</td>
+                    <td id="enlistment-hp-4">HP:</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="enlistment-sane-1">SANE: 20</td>
-                    <td id="enlistment-sane-2">SANE: 10</td>
-                    <td id="enlistment-sane-3">SANE: 12</td>
-                    <td id="enlistment-sane-4">SANE: 5</td>
+                    <td id="enlistment-sane-1">SANE:</td>
+                    <td id="enlistment-sane-2">SANE:</td>
+                    <td id="enlistment-sane-3">SANE:</td>
+                    <td id="enlistment-sane-4">SANE:</td>
                 </tr>
                 <tr></tr>
                 <!-- Row 2 -->
                 <tr>
                     <th>Row 2</th>
-                    <td><img id="enlistment-img-5" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-6" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-7" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-8" class="battle-img" src="blankLarge.png"></td>
+                    <td><img id="enlistment-img-5" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-6" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-7" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-8" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -399,10 +403,10 @@
                 <!-- Row 3 -->
                 <tr>
                     <th>Row 3</th>
-                    <td><img id="enlistment-img-9" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-10" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-11" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-12" class="battle-img" src="blankLarge.png"></td>
+                    <td><img id="enlistment-img-9" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-10" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-11" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-12" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -422,10 +426,10 @@
                 <!-- Row 4 -->
                 <tr>
                     <th>Row 4</th>
-                    <td><img id="enlistment-img-13" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-14" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-15" class="battle-img" src="blankLarge.png"></td>
-                    <td><img id="enlistment-img-16" class="battle-img" src="blankLarge.png"></td>
+                    <td><img id="enlistment-img-13" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-14" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-15" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
+                    <td><img id="enlistment-img-16" class="battle-img" src="Images/Beasts/blankLarge.png"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -459,7 +463,7 @@
             <h3>Your Creatures</h3>
             <p>Here you can look at all your creatures.</p>
             
-            <img id="creature-img" style="float:right; width:360px;" src="bladeLionLarge.png">
+            <img id="creature-img" class="creature-img-large" style="float:right; width:360px;" src="Images/Beasts/Blade-Lion/bladeLionLarge.png">
             <p id="creature-name" style="display:inline-block">NAME: Gregarious</p>
             <button style="display:inline-block" onclick="renameCreature()">Rename</button>
             <input type="text" value="" id="rename-creature"  style="display:inline-block">
@@ -489,6 +493,11 @@
         <p>Where you can look at your equipment and equip your monsters.</p>
         </div>
         
+        <div id="Husbandry" class="tabcontent">
+            <h3>Husbandry</h3>
+            <p>Here you can tame captured creatures, and treat your creatures well to give boosts to stats and help them grow. You may also breed your creatures</p>
+        </div>
+        
         <div id="Adventure" class="tabcontent">
             <h3>Adventure</h3>
             <p>Here you can explore the wilds.</p>
@@ -496,9 +505,6 @@
                 <!-- example tile for testing purposes, containerMap should be empty when first loaded. -->
              <!--   <div class="grass"></div>   -->
             </div>
-            <!-- old code
-            <img style="display:none;" src="smallGuy.png">
-            <img style="display:none;" src="enemyArmy.gif">     -->
             <div id="adv-movement">
                 <p class="adv-paragraph">Move:</p>
                 <button class="adv-button" onclick="goNorth()">North</button>
@@ -510,11 +516,19 @@
                 <p class="adv-paragraph">Interactions:</p>
                 <button class="adv-button">Battle</button>
                 <button class="adv-button">Duel</button>
+                <button class="adv-button">Hunt</button>
                 <button class="adv-button" onclick="speak()">Speak</button>
                 <button class="adv-button">Trade</button>
                 <button class="adv-button">Quest</button>
+                <button class="adv-button">Loot</button>
             </div>
             <p id="adv-status">Status:</p>
+        </div>
+        
+        <div id="Settlement" class="tabcontent">
+            <h3>Settlement</h3>
+            <p>Here you can manage your settlement.</p>
+            
         </div>
         
         <div id="Achievements" class="tabcontent">
@@ -524,20 +538,34 @@
         
         <div id="Options" class="tabcontent">
             <h3>Options</h3>
-            <p> Options go here.</p>
+            <p>Options will go here when there are some.</p>
         </div>
         
         <div id="About" class="tabcontent">
             <h3>About</h3>
             <p>Hi I'm an indie dev making games for fun.</p>
+            <p>This game is in a pre-alpha state, expect things to change or break. This is planned to be a pretty ambitious game, so expect nothing and hope for everything.</p>
+            <p style="display:inline-block">Check out the source at:</p>
+            <a href="https://github.com/KaizNike/Beast-Kings" style="display:inline-block">Github</a>
+            <p style="display: inline-block"> Check out my itch.io at:</p>
+            <a href="https://kaizarnike.itch.io/">itch.io</a>
+            <p>This game is currently unliscensed and remains my own creative work. You are free to use snippets of code as you wish, but other assets require permission and acknowledgement somewhere in your work.</p>
         
         </div>
         
+        
+        <audio controls loop autoplay="autoplay" style="display:inline-block" id="epicMusic">
+            <source src="Music/bensound-epic.ogg" type="audio/ogg">
+            <source src="Music/bensound-epic.mp3" type="audio/mpeg">
+            Your browser unfortunately does not support html audio.
+        </audio>
+        <p style="display:inline-block">Music: « Epic » from </p>
+        <a href="https://www.bensound.com/royalty-free-music" style="display:inline-block">Bensound.com</a>
+        <p style="display:inline-block; float:right;">Version 0.2</p>
 
         <script>
             // Get the element with id="defaultOpen" and click on it
             document.getElementById("defaultOpen").click();
         </script>
-        
     </body>
 </html>
