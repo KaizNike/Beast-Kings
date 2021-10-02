@@ -11,11 +11,18 @@
     .tab button {
         font-size: 12px;
     }
+    .Story-History-Selection button {
+        font-size: 12px;
+    }
 
 }
 
 @media screen and (min-width:851px) {
+    /* CSS for screens that are at least 851 pixels goes here */
     .tab button {
+        font-size: 17px;
+    }
+    .Story-History-Selection button {
         font-size: 17px;
     }
 }
@@ -25,6 +32,25 @@
     /* Change color of header to represent window size */
     h1, h2, h3 {color: red;
     text-shadow: 2px 2px 2px #ff0000;}
+    
+    .battle-text {
+    font-size: 8px;
+    }
+    
+    #battleContainerMap {
+    height: 200px;
+    width: 400px;
+    position: relative;
+    outline: 1px solid #ccc;
+        }
+    
+    #duelContainerMap {
+        height: 60px;
+        width: 400px;
+        position: relative;
+        outline: 1px solid #ccc;
+    }
+    
     
     #containerMap {
     height: 200px;
@@ -79,19 +105,54 @@
         }
     
 .adv-img {
-    position: relative;
+    z-index: 1;
+    position: absolute;
     display: block;
+    top: 2px;
+    left: 2px;
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
+        }
+    
+.adv-img-overlay {
+    opacity: 20%;
+    position: absolute;
+    display: block;
+    z-index: 2;
+    top: 2px;
+    left: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+        }
+    
 }
-}
+/* end of max 1899px */
 
 @media screen and (min-width:1900px) {
     /* CSS for screens that are greater than 1900 pixels */
     h1, h2, h3 {color: white;
     text-shadow: 2px 2px 2px #ff0000;}
+    
+    .battle-text {
+    font-size: 16px;
+    }
+    
+    #battleContainerMap {
+    height: 500px;
+    width: 1600px;
+    position: relative;
+    outline: 1px solid #ccc;
+        }
+    
+    #duelContainerMap {
+        height: 150px;
+        width: 1600px;
+        position: relative;
+        outline: 1px solid #ccc;
+    }
     
     #containerMap {
     height: 500px;
@@ -147,14 +208,30 @@
         }
     
 .adv-img {
-    position: relative;
+    position: absolute;
     display: block;
-    margin-top: 15px;
+    z-index: 1;
+    top: 17px;
+    left: 32px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
         }
+
+.adv-img-overlay {
+    opacity: 20%;
+    position: absolute;
+    display: block;
+    z-index: 2;
+    top: 17px;
+    left: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+        }
+    
 }
+/* end of 1900px */
 
 
 body {
@@ -215,6 +292,60 @@ h1, h2, h3 {
   background-color: #0000b3;
 }
 
+.tablinks {
+    
+}
+
+.Story-History-Selection {
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.Story-History-Selection button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.History-Content-Selection button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.Story-History-Selection button:hover {
+  background-color: #000066;
+}
+
+/* Create an active/current "tab button" class */
+.Story-History-Selection button.active {
+  background-color: #0000b3;
+}
+
+/* Change background color of buttons on hover */
+.History-Content-Selection button:hover {
+  background-color: #000066;
+}
+
+/* Create an active/current "tab button" class */
+.History-Content-Selection button.active {
+  background-color: #0000b3;
+}
 /* Style the tab content */
 .tabcontent {
   float: left;
@@ -223,6 +354,10 @@ h1, h2, h3 {
   width: 85%;
   border-left: none;
   height: 800px;
+}
+
+.storycontent {
+/*    display: none;    */
 }
 
 .armies-content {
@@ -283,5 +418,11 @@ div.creatures-select-enlistment {
     display: inline-block;
 }
 
+.battle-text {
+    text-align: center;
+}
 
+.QA-Question {
+    padding-left: 8px;
+}
 

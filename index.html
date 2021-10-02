@@ -5,36 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Beast Kings - Strategy Game</title>
     <!-- nessecary jquery script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- old version - script now included for security
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>   
+    -->
+    <script src="Scripts/External/jquery-3.5.1.js"></script>
+    <!-- start of game scripts, located in 'Scripts' folder -->
     <script src="Scripts/navigation.js"></script>
     <script src="Scripts/data.js"></script>
+    <script src="Scripts/storyscript.js"></script>
+    <script src="Scripts/battlescript.js"></script>
     <script src="Scripts/creaturesscript.js"></script>
     <script src="Scripts/adventurescript.js"></script>
     <script src="Scripts/duelscript.js"></script>
     <script src="Scripts/gamescript.js"></script>
     <script>
-    var width = window.innerWidth;
-    if (width < 800) {
-        console.log("Do not display");
-        alert("Screen not supported. " + "Please view in landscape - tilt your device.");
-    }
+        // check window width for breaking html
+        var width = window.innerWidth;
+        if (width < 800) {
+            console.log("Display not supported. Works best on 1920 wide, supports 800 wide.");
+            alert("Screen not supported. " + "Please try landscape mode - tilt your device. Minimum 800 pixels wide.");
+        }
     </script>
     
     <link rel="stylesheet" type="text/css" href="gamestyle.css">
     </head>
+    
     <body>
         <h1 align="center">BEAST KINGS</h1>
         
         <div class="tab">
             <!-- Max 12 Tabs without resizing -->
-            <button class="tablinks" onclick="openTab(event, 'Story')" id="defaultOpen">Story</button>
-            <button class="tablinks" onclick="openTab(event, 'Battle')">Battle</button>
+            <button id="Start-Story" class="tablinks" onclick="openTab(event, 'Story')">Story</button>
+            <button id="Start-Battle" class="tablinks" onclick="openTab(event, 'Battle')">Battle</button>
             <button class="tablinks" onclick="openTab(event, 'Duels')">Duels</button>
             <button class="tablinks" onclick="openTab(event, 'Enlistment')">Enlistment</button>
             <button class="tablinks" onclick="openTab(event, 'Armory')">Armory</button>
             <button class="tablinks" onclick="openTab(event, 'Your-Creatures')">Your Creatures</button>
-            <button class="tablinks" onclick="openTab(event, 'Husbandry')">Husbandry</button>
-            <button class="tablinks" onclick="openTab(event, 'Adventure')">Adventure</button>
+            <button id="Start-Husbandry" class="tablinks" onclick="openTab(event, 'Husbandry')">Husbandry</button>
+            <button id="Start-Adventure" class="tablinks" onclick="openTab(event, 'Adventure')">Adventure</button>
             <button class="tablinks" onclick="openTab(event, 'Settlement')">Settlement</button>
             <button class="tablinks" onclick="openTab(event, 'Achievements')">Achievements</button>
             <button class="tablinks" onclick="openTab(event, 'Options')">Options</button>
@@ -42,13 +50,74 @@
         </div>
         
         <div id="Story" class="tabcontent">
+            <div class="Story-History" style="width:20%; height: 100%; float:right; border: 1px solid #ccc;">
+                <h1 style="text-align: center;">History</h1>
+                <div class="Story-History-Selection">
+                    <button id="defaultOpen" class="storylinks" onclick="openStoryTab(event, 'Character-Start', 'Story-QA', 'Story-Start-Selection')">Beginning</button>
+                </div>
+            </div>
+            <div class="History-Content" style="width:10%; height: 100%; float: right; border: 1px solid #ccc;">
+            <h3 style="text-align: center;">Selection</h3>
+                <div class="History-Content-Selection">
+                    <div id="HCS-Start">
+                <button onclick="openStoryTabSelect(event, 'Start')" id="Character-Start" class="selectioncontent">Character Creation</button>
+                        <button onclick="openStoryTabSelect(event, 'Story-Start')" id="Story-Start-Selection" class="selectioncontent">Background</button>
+                    <button onclick="openStoryTabSelect(event, 'QA')" id="Story-QA" class="selectioncontent">Q & A</button>
+                        </div>
+                </div>
+            </div>
             <h3>Story</h3>
             <p>The story begins here.</p>
+            <div style="height:700px; width: 70%; border: 1px solid #ccc; overflow-y: scroll;">
+               <div id="Start" class="storycontent">
+                <div>
+                    <p style="padding: 8px">Just who are you anyway?</p>
+                    <p id="storyName" style="margin-left: 150px;">Shaulok Bitterskin</p>
+                    <button class="adv-button" onclick="characterSelect(-1)" style="display: inline-block;"><-</button>
+                    <img src="" id="storySelectLeft" style="width: 20px; display: inline-block;">
+                    <img src="Images/Adventure/Characters/smallGuyLarge.png" id="storySelect" style="width:200px; display: inline-block;">
+                    <img src="" id="storySelectRight" style="width: 20px; display: inline-block;">
+                    <button class="adv-button" onclick="characterSelect(1)" style="display: inline-block">-></button>
+                </div>
+                <div style="padding-top: 35px;">
+                    <p style="display: inline-block; padding: 8px">Start Select:</p>
+                    <button onclick="initializeStory('Story')" class="adv-button" style="display: inline-block">Story</button>
+                    <button onclick="initializeStory('Standard')" class="adv-button" style="display: inline-block">Standard</button>
+                </div>
+                <div>
+                    <p id="selectBackgroundTidbit" style="padding: 8px">Hello.</p>
+                    </div>
+                    </div>
+                   <div id="Story-Start" class="storycontent">
+                   <p>You shouldn't be able to read this.</p>
+                   </div>
+                   <div id="Standard-Start" class="storycontent">
+                   <p>For standard.</p>
+                   </div>
+                   <div id="QA" class="storycontent">
+                       <p>Hello. Welcome to my game, here are some questions you may have:</p>
+                       <p class="QA-Question">Q: Where has everything gone?</p>
+                       <p>A: Don't worry it has been kept safe.</p>
+                       <p class="QA-Question">Q: Where is the music at?</p>
+                       <p>A: Turn down the volume and click play at the bottom left of the screen.</p>
+                       <p class="QA-Question">Q: Which start should I choose?</p>
+                       <p>A: Story gets you started slow, standard throws you into the thick of it.</p>
+                       <p class="QA-Question">Q: Which character should I choose?</p>
+                       <p>A: Exercise Caution.</p>
+                       <p class="QA-Question">Q: Should I play this game?</p>
+                       <p>A: Right now it is not all that content deep, you should wait a bit. If you like trying games in pre-alpha, have a go at it.</p>
+                       <p class="QA-Question">Q: Where are my saves going?</p>
+                       <p>A: There are none yet. Soon there will be cookies.</p>
+                       <p class="QA-Question">Q: Where's my towel?</p>
+                       <p>A: You're wearing it, silly.</p>
+                   </div>
+            </div>
         </div>
     
         <div id="Battle" class="tabcontent">
             <h3>Battle</h3>
             <p>Here armies go to war.</p>
+            <div id="battle-content" style="display: none;">
             <div id="Army-One" class="armies-content">
             <table style="width:50%" id="Army-One-Table" class="table-armies-content">
                 <tr>
@@ -259,11 +328,18 @@
                 </table>
             
             </div>
+                
+            </div>
+            <div id="battleContainerMap"></div>
+            <button onclick="startBattle('Battle-Start')" class="adv-button" id="Battle-Start">Start</button>
+            <button class="adv-button">Retreat</button>
+            <button onclick="allStop()" class="adv-button">Pause</button>
         </div>
         
         <div id="Duels" class="tabcontent">
         <h3>Duels</h3>
         <p>Here your minions go to fight one on one.</p>
+            <div id="duelContainerMap"></div>
         <div style="width:50%; display:inline-block;">
             <img class="duel-img" src="Images/Beasts/Blade-Lion/bladeLionLarge.png">
             <div style="display:inline-block">
@@ -495,7 +571,7 @@
         
         <div id="Husbandry" class="tabcontent">
             <h3>Husbandry</h3>
-            <p>Here you can tame captured creatures, and treat your creatures well to give boosts to stats and help them grow. You may also breed your creatures</p>
+            <p>Here you can tame captured creatures, and treat your creatures well to give boosts to stats and help them grow. You may also breed your creatures. You can also grow your own cache of crops for your creatures.</p>
         </div>
         
         <div id="Adventure" class="tabcontent">
@@ -553,7 +629,7 @@
         
         </div>
         
-        
+        <div>
         <audio controls loop autoplay="autoplay" style="display:inline-block" id="epicMusic">
             <source src="Music/bensound-epic.ogg" type="audio/ogg">
             <source src="Music/bensound-epic.mp3" type="audio/mpeg">
@@ -561,11 +637,13 @@
         </audio>
         <p style="display:inline-block">Music: « Epic » from </p>
         <a href="https://www.bensound.com/royalty-free-music" style="display:inline-block">Bensound.com</a>
-        <p style="display:inline-block; float:right;">Version 0.2</p>
-
+        <p style="display:inline-block; float:right;">Version 0.2.0.4</p>
+        </div>
         <script>
             // Get the element with id="defaultOpen" and click on it
+            document.getElementById("Start-Story").click();
             document.getElementById("defaultOpen").click();
+            document.getElementById("Character-Start").click();
         </script>
     </body>
 </html>

@@ -34,23 +34,11 @@ function roll() {
 
 */
 // currently busted by entering html
-function renameCreature() {
-    var newName = document.getElementById("rename-creature").value;
-    if (newName.includes("<")) {
-        alert("Unsupported character")
-    }
-    else if (newName.length > 20) {
-        alert("Too long")
-    }
-    else {
-        document.getElementById("creature-name").innerHTML = "NAME: " + String(newName);
-    }
-    
-}
+
 
 $(document).ready(function () {
   //  drawMap();
   //  findPlayer();
   //  console.log("Over " + finalX + " Down " + finalY);
-   console.log(villageInfo[0].name);       // works
+  // console.log(villageInfo[0].name);       // works
 });

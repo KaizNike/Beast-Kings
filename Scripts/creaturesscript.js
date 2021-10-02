@@ -90,6 +90,20 @@ function enlistmentSelectionLocation(location) {
 //    console.log(finalSelectionLocation);      // WORKS
 }
 
+function renameCreature() {
+    var newName = document.getElementById("rename-creature").value;
+    if (newName.includes("<")) {
+        alert("Unsupported character")
+    }
+    else if (newName.length > 20) {
+        alert("Too long")
+    }
+    else {
+        document.getElementById("creature-name").innerHTML = "NAME: " + String(newName);
+    }
+    
+}
+
 //    /*      // Use this to test code from this script
 $(document).ready(function () {
     // worked

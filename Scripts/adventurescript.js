@@ -26,35 +26,35 @@ function drawMap() {
         for (var j = 0; j < mapArray[i].length; j++) {
             // 0 – Grass, Plains, Empty - Light Green        
             if(mapArray[i][j] == 0) {
-                $('#containerMap').append('<div class="grass"></div>');
+                $('#containerMap').append(tileGrass.advDetail);
             }
             // 1 – Enemy Army- on terrain   1.0 = grass, 1.3 = on water, 1.4 on settlement etc 
             if(mapArray[i][j] == 1) {
-                $('#containerMap').append('<div class="grass"><img class="adv-img" src="Images/Adventure/Characters/enemyArmy.gif"></div>');
+                $('#containerMap').append(tileEnemyGrass.advDetail);
             }
             else if(mapArray[i][j] == 1.8) {
-               $('#containerMap').append('<div class="snow"><img class="adv-img" src="Images/Adventure/Characters/enemyArmy.gif"></div>'); 
+               $('#containerMap').append(tileEnemySnow.advDetail); 
             }
             // 2 – Your Army – Light Green follows rules of 1, example 2.8 means on snow
             if(mapArray[i][j] == 2) {
-                $('#containerMap').append('<div class="grass"><img class="adv-img" src="Images/Adventure/Characters/smallGuy.png"></div>');
+                $('#containerMap').append(tilePlayerGrass.advDetail);
             }
             // your army on snow
             else if (mapArray[i][j] == 2.8) {
-                $('#containerMap').append('<div class="snow"><img class="adv-img" src="Images/Adventure/Characters/smallGuy.png"></div>');
+                $('#containerMap').append(tilePlayerSnow.advDetail);
             }
             // settlements
             if (mapArray[i][j] == 4) {
-                $('#containerMap').append('<div class="settlement"><img class="adv-img" src="Images/Adventure/Impassible/settlementPic.png"></div>');
+                $('#containerMap').append(tileSettlement.advDetail);
                 console.log(i + " " + j);
             }
             // 8 – Snow - White 
             if(mapArray[i][j] == 8) {
-                $('#containerMap').append('<div class="snow"></div>');
+                $('#containerMap').append(tileSnow.advDetail);
             }
             // 9 – Mountains – White with mountain pic
             if(mapArray[i][j] == 9) {
-                $('#containerMap').append('<div class="mountain"><img class="adv-img" src="Images/Adventure/Impassible/mountainPic.png"></div>');
+                $('#containerMap').append(tileMountain.advDetail);
             }
         }
     }
@@ -389,7 +389,7 @@ $(document).ready(function () {
     drawMap();
     findPlayer();
     console.log("Over " + displayX + " Down " + displayY);
-   console.log(villageInfo[0].name);       // works
+//   console.log(villageInfo[0].name);       // works
 });
 
 // keyboard support
