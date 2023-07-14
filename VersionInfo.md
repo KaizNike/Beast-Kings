@@ -1,3 +1,6 @@
+V 0.2.0.5 -
+Changed input to not register adventure mode movement when its not active
+
 V 0.2.0.4 - 
 Started Version Log (This.) (Info: Version is kept as 'Major.Minor.Release.Revision'. This being the 3rd Minor release's alpha state 5th Revision.)
 Added Duel Screen Map (Smaller map at 20 tiles wide, 3 tiles tall.)

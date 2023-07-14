@@ -398,7 +398,9 @@ $(document).on("keydown", function(keycheck) {
     if (keycheck.which == 13) {
    //    $("body").append("<p>You pressed enter.</p>");     // testing code // works
    }
-    else if (keycheck.which == 38 || keycheck.which == 87) {
+    if ($("#Start-Adventure").hasClass("active")) {
+        console.log("Adventure active, process input.")
+    if (keycheck.which == 38 || keycheck.which == 87) {
     //    $("body").append("<p>You should go north.</p>");      // testing code // works
         goNorth();
     }
@@ -410,5 +412,6 @@ $(document).on("keydown", function(keycheck) {
     }
     else if (keycheck.which == 39 || keycheck.which == 68) {
         goEast();
+    }
     }
 });
