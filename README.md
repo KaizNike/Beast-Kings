@@ -3,4 +3,4 @@ Upcoming HTML/Javascript strategy and monster collection game.
 
 [**Play the Game**](https://kaiznike.github.io/Beast-Kings/)<br>
 
-## Now in version 0.2
+## [Now in version 0.2.0.6](VersionInfo.md)

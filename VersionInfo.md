@@ -1,3 +1,6 @@
+V 0.2.0.6 -
+Added link to version info (version needs to update in 3 places as of now.)
+
 V 0.2.0.5 -
 Changed input to not register adventure mode movement when its not active
 
