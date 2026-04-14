@@ -1,10 +1,11 @@
 function displayPlayerCreature() {
     for (var i = 0; i < playerCreature.length; i++) { 
     //    console.log(playerCreature[i].name);      // works
-        // Your Creatures Page, adds a button with the creatures name on it.
-        $('#creature-selection').append('<button onclick="display(' + playerCreature[i].id + ')" class="creature-button">' + playerCreature[i].name + '</button>');
+        // Your Creatures Page, adds a button with the creatures name and picture on it.
+        $('#creature-selection').append('<button onclick="display(' + playerCreature[i].id + ')" class="creature-button sc-'+ playerCreature[i].id+'">' + '<img src="' + playerCreature[i].smallPicture + '">'  + playerCreature[i].name + '</button>'); // 2026, display pic
+        
         // Enlistment Page, should display a checkbox, an image and the name
-        $('#creatures-form').append('<input type="checkbox" onchange="doalert(this, ' + playerCreature[i].id + ')">' + '<img src="' + playerCreature[i].smallPicture + '">' + /* '<p>'  + */ playerCreature[i].name /* + '</p>' */);
+        $('#creatures-form').append('<input type="checkbox" onchange="doalert(this, ' + playerCreature[i].id + ')"'+ 'class="sc-'+ playerCreature[i].id+'>' + '<img src="' + playerCreature[i].smallPicture + '">' + /* '<p>'  + */ playerCreature[i].name /* + '</p>' */);
     }
 }
 
@@ -92,6 +93,7 @@ function enlistmentSelectionLocation(location) {
 
 function renameCreature() {
     var newName = document.getElementById("rename-creature").value;
+    newName = String(newName)
     if (newName.includes("<")) {
         alert("Unsupported character")
     }
@@ -99,7 +101,21 @@ function renameCreature() {
         alert("Too long")
     }
     else {
+        var id
+        var creature
+        var pic
+        for (var k = 0; k < playerCreature.length
+             ; k++) {
+            if (playerCreature[k].name == newName) {
+                id = playerCreature[k].id
+                pic = playerCreature[k].smallPicture
+                playerCreature[k].name = String(newName)
+            }
+            
+        }
+        
         document.getElementById("creature-name").innerHTML = "NAME: " + String(newName);
+        document.getElementsByClassName("sc-"+String(id)).innerHTML = '<img src="' + pic + '">' + /* '<p>'  + */ String(newName)
     }
     
 }
